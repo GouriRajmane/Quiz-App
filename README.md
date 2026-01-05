@@ -36,6 +36,7 @@ A simple browser-based quiz application that presents a sequence of multiple-cho
 - Questions are shown in the defined order (no shuffling or randomization by default).
 - No persistence (score or progress is not stored across page reloads).
 - No timer or per-question time limits.
+- Pressing **Exit** during the quiz or on the result screen will prompt for confirmation; if confirmed, the app returns to the initial start view and resets progress/score (does not close the browser tab).
 
 ---
 

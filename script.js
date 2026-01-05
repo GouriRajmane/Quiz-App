@@ -59,7 +59,12 @@ document.addEventListener("DOMContentLoaded", () => {
     startQuiz();
   });
 
-  exitBtn.addEventListener("click", exitQuiz);
+  exitBtn.addEventListener("click", () => {
+    const confirmExit = window.confirm("Are you sure you want to exit the quiz? Your current progress will be lost.");
+    if (confirmExit) {
+      exitQuiz();
+    }
+  });
 
   function startQuiz() {
     startBtn.classList.add("hidden");
