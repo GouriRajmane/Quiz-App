@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const choicesList = document.getElementById("choices-list");
   const resultContainer = document.getElementById("result-container");
   const scoreDisplay = document.getElementById("score");
+  const exitBtn = document.getElementById("exit-btn");
 
   const questions = [
     {
@@ -58,10 +59,13 @@ document.addEventListener("DOMContentLoaded", () => {
     startQuiz();
   });
 
+  exitBtn.addEventListener("click", exitQuiz);
+
   function startQuiz() {
     startBtn.classList.add("hidden");
     resultContainer.classList.add("hidden");
     questionContainer.classList.remove("hidden");
+    exitBtn.classList.remove("hidden");
     showQuestion();
   }
 
@@ -93,6 +97,17 @@ document.addEventListener("DOMContentLoaded", () => {
     questionContainer.classList.add("hidden");
     resultContainer.classList.remove("hidden");
     scoreDisplay.textContent = `${score} out of ${questions.length}`;
+  }
+
+  function exitQuiz() {
+    currentQuestionIndex = 0;
+    score = 0;
+    hasAnsweredCurrentQuestion = false;
+    questionContainer.classList.add("hidden");
+    resultContainer.classList.add("hidden");
+    startBtn.classList.remove("hidden");
+    exitBtn.classList.add("hidden");
+    nextBtn.classList.add("hidden");
   }
 });
 
